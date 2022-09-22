@@ -1,0 +1,495 @@
+@charset "UTF-8";
+
+html {
+  color: #000;
+  background: #fff;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before,
+q:after {
+  content: "";
+}
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  *font-size: 100%;
+}
+
+legend {
+  color: #000;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* base */
+/* ---------------- */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.8;
+  line-height: 2;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.container {
+  width: 90%;
+  margin: 100px auto;
+  max-width: 960px;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.form {
+  margin-top: 40px;
+}
+
+.form-item {
+  border-bottom: 1px solid #eee;
+  padding: 40px 0;
+}
+
+.form-item:first-child {
+  padding-top: 0;
+}
+
+.form-item-name {
+  display: block;
+  font-weight: bold;
+}
+
+.form-item-body {
+  margin-top: 4px;
+}
+
+.m-error {
+  margin-top: 4px;
+  color: #f33f3f;
+}
+
+/* input text */
+/* ---------------- */
+
+.form-item-text {
+  max-width: 400px;
+}
+
+.m-form-text {
+  height: 2.4em;
+  width: 100%;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 0 1px #ccc inset;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.m-form-text:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+/* radio */
+/* ---------------- */
+
+.m-form-radio input {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.m-form-radio-name {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  color: #666;
+}
+
+.m-form-radio-name:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.m-form-radio input:checked + .m-form-radio-name:before {
+  border: 0.3em solid rgb(33, 150, 243);
+}
+
+.m-form-radio input:checked + .m-form-radio-name {
+  color: rgb(33, 150, 243);
+}
+
+.m-form-radio input:focus + .m-form-radio-name {
+  color: rgb(33, 150, 243);
+}
+
+.m-form-radio input.focus-visible + .m-form-radio-name .m-form-radio-text {
+  background: linear-gradient(transparent 90%, rgba(33, 150, 243, 0.3) 90%);
+}
+
+/* checkbox */
+/* ---------------- */
+
+.m-form-checkbox input {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.m-form-checkbox-name {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  color: #666;
+  position: relative;
+}
+
+.m-form-checkbox-name:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.m-form-checkbox input:checked + .m-form-checkbox-name:before {
+  border: 1px solid rgb(33, 150, 243);
+  background-color: rgb(33, 150, 243);
+}
+
+.m-form-checkbox input:checked + .m-form-checkbox-name:after {
+  content: "";
+  position: absolute;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  left: 0.3em;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0.4em;
+  height: 0.6em;
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.m-form-checkbox input:checked + .m-form-checkbox-name {
+  color: rgb(33, 150, 243);
+}
+
+.m-form-checkbox
+  input:focus-visible
+  + .m-form-checkbox-name
+  .m-form-checkbox-text {
+  background: linear-gradient(transparent 90%, rgba(33, 150, 243, 0.3) 90%);
+}
+
+.m-form-checkbox
+  input.focus-visible
+  + .m-form-checkbox-name
+  .m-form-checkbox-text {
+  background: linear-gradient(transparent 90%, rgba(33, 150, 243, 0.3) 90%);
+}
+
+/* select */
+/* ---------------- */
+
+.form-item-select {
+  max-width: 300px;
+}
+
+.m-form-select {
+  position: relative;
+}
+
+.m-form-select:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #333;
+  border-right: 2px solid #333;
+  transform: rotate(135deg);
+  pointer-events: none;
+}
+
+.m-form-select select {
+  height: 2.4em;
+  width: 100%;
+  padding: 0 8px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 0 1px #ccc inset;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+.m-form-select select::-ms-expand {
+  display: none;
+}
+
+.m-form-select select:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+/* textarea */
+/* ---------------- */
+
+.form-item-textarea textarea {
+  height: 300px;
+}
+
+.m-form-textarea {
+  display: block;
+  width: 100%;
+  padding: 4px 16px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 0 1px #ccc inset;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  resize: vertical;
+}
+
+.m-form-textarea:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+/* input submit */
+/* button */
+/* ---------------- */
+
+.form-submit {
+  margin: 40px auto 0;
+  width: 300px;
+}
+
+.m-form-submit-button {
+  display: inline-block;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.m-form-submit-button:hover {
+  background-color: #000;
+}
+
+.m-form-submit-button:focus {
+  outline: 0;
+  background-color: #000;
+  border: 2px solid rgb(33, 150, 243);
+}
+
+/* ここからは追加したもの */
+
+table th {
+  background-color: #c0c0c0;
+  width: 200px;
+  text-align: center;
+}
+
+table td {
+  width: 200px;
+}
+
+.tooltip2 {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.tooltip2 p {
+  margin: 0;
+  padding: 0;
+}
+.description2 {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.6em;
+  color: #fff;
+  border-radius: 5px;
+  background: #000;
+  width: 200px;
+}
+.description2:before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  right: 95%;
+  border: 15px solid transparent;
+  border-top: 15px solid #000;
+  margin-left: -15px;
+  transform: rotateZ(90deg);
+}
+.tooltip2:hover .description2 {
+  display: inline-block;
+  top: 0px;
+  left: 40px;
+}
+
+.ques {
+  font-size: small;
+  background: #eee;
+  width: 1.2em;
+  line-height: 1.2em;
+  text-align: center;
+  border-radius: 50%;
+}

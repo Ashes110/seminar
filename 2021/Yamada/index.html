@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja" class="js-focus-visible" data-js-focus-visible>
+
+<head>
+    <meta charset="utf-8">
+    <title>被害金額推定</title>
+    <link rel="stylesheet" href="style.css" media="all">
+</head>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+
+<body>
+    <div class="container">
+        <h1 class="title">被害金額推定</h1>
+        <form action="index.php" method="higai" class="form">
+
+            <div class="form-item">
+                <div class="form-item-name">被害人数は何人ですか？（人）</div>
+                <div class="form-item-body">
+                    <div class="form-item-text">
+                        <input type="number" name="people" value=0 class="m-form-text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">インシデントの起こった年の売上高はいくらですか？（百万円）</div>
+                <div class="form-item-body">
+                    <div class="form-item-text">
+                        <input type="number" name="value" value=0 class="m-form-text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">故意
+                    <div class="tooltip2">
+                        <p class="ques">?</p>
+                        <div class="description2">内部犯行や不正な持ち出しの場合は故意に分類</div>
+                    </div>
+                </div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <div>
+                            <label>
+                                <input type="radio" name="intent" value=0 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">事故</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="intent" value=1>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">故意</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">事後対応度
+                    <div class="tooltip2">
+                        <p class="ques">?</p>
+                        <div class="description2">放置したまま、対応が遅い、繰り返し発生してる、対策が有効でない、虚偽報告は不適切に分類</div>
+                    </div>
+                </div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <div>
+                            <label>
+                                <input type="radio" name="res" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">適切</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="res" value=2>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">不適切</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">社会的責任度
+                    <div class="tooltip2">
+                        <p class="ques">?</p>
+                        <div class="description2">適正な取扱いを確保すべき個別分野の業種（医療、金融・信用、情報通信など）、公的機関、知名度のある企業は一般より高いに分類</div>
+                    </div>
+                </div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <div>
+                            <label>
+                                <input type="radio" name="soc" value=2 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">一般より高い</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="soc" value=1>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">一般的</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">経済的ランク<a href="jnsa-rank.JPG" data-lightbox="group"
+                        style="color: rgb(123, 243, 203);border-bottom: solid 1px;">（ランク区分について）</a></div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <div>
+                            <label>
+                                <input type="radio" name="eco" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">1</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="eco" value=2>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">2</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="eco" value=3>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">3</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">精神的ランク<a href="jnsa-rank.JPG" data-lightbox="group"
+                        style="color: rgb(123, 243, 203);border-bottom: solid 1px;">（ランク区分について）</a></div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <div>
+                            <label>
+                                <input type="radio" name="mind" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">1</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="mind" value=2>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">2</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="mind" value=3>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">3</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">情報漏洩などが複数回あった</div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <div>
+                            <label>
+                                <input type="radio" name="mul" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="mul" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">法的措置を受けたか</div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <div>
+                            <label>
+                                <input type="radio" name="law" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="law" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">業種</div>
+                <div class="form-item-body">
+                    <div class="form-item-select">
+                        <div class="m-form-select">
+                            <select name="indus">
+                                <option value=-0.0773>不動産業</option>
+                                <option value=-1.4450>建設業</option>
+                                <option value=-0.1350>情報通信業</option>
+                                <option value=-0.4030>林業</option>
+                                <option value=-0.9330>電気・ガス</option>
+                                <option value=-1.004>生活関連サービス業、娯楽業</option>
+                                <option value=-0.4550>卸売業、小売業</option>
+                                <option value=-0.6319>医療、福祉</option>
+                                <option value=-0.4607>宿泊業、飲食支援業</option>
+                                <option value=-0.7577>製造業</option>
+                                <option value=-0.0654>教育、学習支援業</option>
+                                <option value=-0.1173>学術研究、専門・技術サービス業</option>
+                                <option value=-1.7570>金融業、保険業</option>
+                                <option value=-0.8893>運輸業、郵便業</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-item-name">個人情報について</div>
+                <div class="form-item-body">
+                    <div class="m-form-radio">
+                        <p>氏名はありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="name" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="name" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p>住所はありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="adress" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="adress" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p>電話番号はありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="number" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="number" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p>生年月日はありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="date" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="date" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p>性別はありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="sex" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="sex" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p>職業はありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="job" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="job" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p>メールアドレスはありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="email" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="email" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <p>ID/PASSはありますか？</p>
+                        <div>
+                            <label>
+                                <input type="radio" name="id" value=1 checked>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">はい</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="id" value=0>
+                                <span class="m-form-radio-name">
+                                    <span class="m-form-radio-text">いいえ</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-submit">
+                <input type="submit" value="送信" class="m-form-submit-button">
+            </div>
+
+            <div class="form-submit">
+                <input type="reset" value="リセット" class="m-form-submit-button">
+            </div>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js"></script>
+</body>
+
+</html>
